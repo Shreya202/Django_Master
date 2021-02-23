@@ -1,0 +1,8 @@
+main- ankur,shreya
+
+
+---------------
+ankur - (main-local) (main-remote) 
+
+=-------------------
+shreya - (main-local)(shreya-local) (shreya-remote) -> main(-remote)
