@@ -1,0 +1,56 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1>Search Candidates</h1>
+
+ <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Candidate Name</th>
+        <th>Skill</th>
+        <th>Account</th>
+        <th>Grade</th>
+        <th>Role</th>
+        <th>Billing Date</th>
+        <th>OnBoard Date</th>
+        <th>Screening Phase</th>
+        <th>Final Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for candidate in filter.qs %}
+        <tr>
+          <td>{{ candidate.Candidate_Name }}</td>
+          <td>{{ candidate.Skill_Category }}</td>
+          <td>{{ candidate.Account }}</td>
+          <td>{{ candidate.Grade }}</td>
+          <td>{{ candidate.Role }}</td>
+          <td>{{ candidate.Billing_Date }}</td>
+          <td>{{ candidate.OnBoard_Date }}</td>
+          <td>{{ candidate.Screening_Phase }}</td>
+          <td>{{ candidate.Final_status }}</td>
+          <td><a href = "/recruiter/search/edit/{{candidate.id}}" >Edit</a>
+          {% comment %} <td><a href="{% url 'search' id=candidate.id %}">Edit</a></td> {% endcomment %}
+          </tr>
+          {% comment %} <td>
+            {% for group in candidate.groups.all %}
+              {{ group }}
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td> {% endcomment %}
+        {% comment %} </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr> {% endcomment %}
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}

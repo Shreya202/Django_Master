@@ -1,0 +1,36 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1>Candidate List</h1>
+
+<table style = "width:100%">
+    <tr>
+        <th>Candidate Name</th>
+        <th>Skill Category</th>
+        <th>Account</th>
+        <th>Grade</th>
+        <th>Role</th>
+        <th>Billing Date</th>
+        <th>OnBoard Date</th>
+        <th>Screening Phase</th>
+        <th>Final status</th>
+    </tr>
+    {% for item in title %}
+    <tr> 
+        <td>{{ item.Candidate_Name }}</td>
+        <td>{{ item.Skill_Category }}</td>
+        <td>{{ item.Account }}</td>
+        <td>{{ item.Grade }}</td>
+        <td>{{ item.Role }}</td>
+        <td>{{ item.Billing_Date }}</td>
+        <td>{{ item.OnBoard_Date }}</td>
+        <td>{{ item.Screening_Phase }}</td>
+        <td>{{ item.Final_status }}</td>
+        <td><a href = "#" >Edit</a> 
+        </td>
+    </tr> 
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+
+<h3 style="text-align:right"><a href="{% url 'search' %}"> Candidates</a></h3>
+<h3 style="text-align:right"><a href="{% url 'interview' %}"> Schedule Interview</a></h3>
+
+<h2> Enter Candidate details </h2>
+<h5>
+<div class="container w3-blue">
+    <div class="column">
+        <div class="col-md-20">
+<form action="{% url 'recruiter' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</h5>
+
+{% endblock %}

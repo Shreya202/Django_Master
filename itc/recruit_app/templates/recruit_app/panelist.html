@@ -1,0 +1,23 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+
+
+<h2> Enter Your Availability </h2>
+<h5>
+<div class="container w3-blue">
+    <div class="column">
+        <div class="col-md-20">
+<form action="{% url 'panelist' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</h5>
+
+{% endblock content %}

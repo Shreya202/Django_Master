@@ -1,0 +1,62 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1>Update Candidate</h1>
+<form method = "post" action = "/recruiter/search/edit/update/{{editupdaterecord.id}}">
+{%csrf_token%}
+<table style = "width:1">
+<tr>
+    <td>Candidate ID</td>
+    <td><input type = "text" name="id" value = {{editupdaterecord.id}} readonly></td>
+</tr>
+<tr>
+    <td>Candidate Name</td>
+    <td><input type = "text" name="Candidate_Name" value = {{editupdaterecord.Candidate_Name}}></td>
+</tr>
+<tr>    
+    <td>Skill</td>
+    <td><input type="text" name = "Skill_Category" value = {{editupdaterecord.Skill_Category}}></td>
+</tr>
+<tr>    
+    <td>Account</td>
+    <td><input type="text" name = "Account" value = {{editupdaterecord.Account}}></td>
+</tr>
+<tr>    
+    <td>Grade</td>
+    <td><input = "text" name = "Grade" value = {{editupdaterecord.Grade}}></td>
+</tr>
+<tr>    
+    <td>Role</td>
+    <td><input type = "text" name = "Role" value = {{editupdaterecord.Role}}></td>
+</tr>
+<tr>
+    <td>Billing Date</td>
+    <td><input type="date" name = "Billing_Date" value ={{editupdaterecord.Billing_Date}}></td>
+</tr>
+<tr>    
+    <td>OnBoard Date</td>
+    <td><input type = "date" name = "OnBoard_Date" value ={{editupdaterecord.OnBoard_Date}}></td>
+</tr> 
+<tr>   
+    <td>Screening Phase</td>
+    <td><input type = "text" name = "Screening_Phase" value = {{editupdaterecord.Screening_Phase}}></td>
+</tr>
+<tr>
+    <td>Final Status</td>
+    <td><input type = "text" name = "Final_status" value = {{editupdaterecord.Final_status}}></td>
+</tr>   
+</table>
+<input type="submit" value="update"/> 
+</form>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+{% endblock content%}
