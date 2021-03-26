@@ -1,0 +1,9 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<option value = "">----select panelists----</option>
+{% for panel in panels %}
+<option value = "{{panel.user_id}}">{{panel.Psid}}</option>
+{% endfor %}
+
+
+{%endblock%}

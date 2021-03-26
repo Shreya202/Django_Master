@@ -35,7 +35,7 @@ class RecruiterSignUpForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        #exclude = ['is_panelist','is_recruiter','first_name','last_name','Password','last_login','groups','user_permissions','date_joined','is_staff','is_active','date_joined','is_superuser','password']
+        exclude = ['is_panelist','is_recruiter','first_name','last_name','Password','last_login','groups','user_permissions','date_joined','is_staff','is_active','date_joined','is_superuser','password']
 
     @transaction.atomic
     def save(self):
@@ -62,7 +62,10 @@ class CandidateForm(ModelForm):
         ('IS1','IS1'),
         ('IS2','IS2'),
         ('IS3','IS3'),
-    )  
+        ('IS4','IS4'),
+        ('IS5','IS5'),
+        ('IS6','IS6'),
+    )    
     SCREENING_CHOICES = (
         ('PENDING','PENDING'),
         ('WIP','WIP'),
@@ -71,7 +74,15 @@ class CandidateForm(ModelForm):
 
     SELECTION_CHOICES = (
         ('SELECTED','SELECTED'),
-        ('REJECTED','REJECTED')
+        ('REJECTED','REJECTED'),
+        ('OFFER RELEASED','OFFER RELEASED'),
+        ('ON-BOARDED','ON-BOARDED'),
+    )
+    ACCOUNT_CHOICES = (
+        ('QVC','QVC'),
+        ('FINASTRA','FINASTRA'),
+        ('BLACKROCK','BLACKROCK'),
+        ('GOLDMANSACHS','GOLDMANSACHS'),
     )
     widgets = {
             'Skill_Category': forms.Select(choices=SKILL_CHOICES,attrs={'class': 'form-control'}),
@@ -80,9 +91,18 @@ class CandidateForm(ModelForm):
             'Final_status': forms.Select(choices=SELECTION_CHOICES,attrs={'class': 'form-control'}),
         }
 
+
+class DateInput(forms.DateTimeInput):
+    input_type = 'datetime'
+
+
 class PanelistForm(ModelForm):
     class Meta:
         model = PanelistSchedule
-        exclude = ["UserName"]
+        fields = ['Available_from']
+        widgets = {
+            'Available_from': DateInput(),
+        }
+        
 
 

@@ -1,0 +1,9 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+
+<option value = "">----select candidates----</option>
+{% for candid in candids %}
+<option value = "{{candid.id}}">{{candid.Candidate_Name}}</option>
+{% endfor %}
+
+{%endblock%}

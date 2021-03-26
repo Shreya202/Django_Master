@@ -1,0 +1,23 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1> Panelist Schedule</h1>
+
+<table style = "width:100%">
+    <tr>
+        <th>ID</th>
+        <th>Available From</th>
+        <th>Available Till</th>
+    </tr>
+    {% for item in sch %}
+    <tr> 
+        <td>{{ item.UserName }}</td>
+        <td>{{ item.Available_from }}</td>
+        <td>{{ item.Available_till }}</td>
+        </td>
+    </tr> 
+    {% endfor %}
+</table>
+{% endblock content %}

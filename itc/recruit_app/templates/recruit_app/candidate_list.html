@@ -2,13 +2,24 @@
 {% block content %}
 <style>h1 {
     text-align: center;
+    
+}
+
     </style>
-<h1>Search Candidates</h1>
+<h1> Candidates</h1>
+<br>{% if messages %}
+          <ul class="messages" color = "green">
+            {% for message in messages %}
+              <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}<br>
 
  <form method="get">
-    {{ filter.form.as_p }}
+    {{ filter.form.as_table }}
     <button type="submit">Search</button>
   </form>
+  <br>
   <table class="table table-bordered">
     <thead>
       <tr>
