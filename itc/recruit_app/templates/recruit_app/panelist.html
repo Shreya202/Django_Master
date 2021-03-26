@@ -1,0 +1,40 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+
+{% comment %} <h2 style="text-align:right"><form action="{% url 'queue' %}" method="post">
+{% csrf_token %}
+
+
+ <button type="submit" name='mybtn2' value={{request.user}}>Check your queue</button>
+ </form></h2> {% endcomment %}
+{% comment %} <h3 style="text-align:right"><a href="{% url 'queue' %}"> View Your Queue</a></h3> {% endcomment %}
+
+<h2 <style="text-align:center"> Enter Your Availability 
+<h5>
+<div class="container w3-blue">
+    <div class="column">
+        <div class="col-md-20">
+<form action="{% url 'panelist' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</h5>
+<h7> You can enter multiple availablities. Please give a gap of minimum one hour between entered availablities.</h7>
+{% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      
+
+{% endblock content %}

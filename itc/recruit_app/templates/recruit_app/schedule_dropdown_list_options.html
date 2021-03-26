@@ -1,0 +1,9 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<option value = "">----view slots----</option>
+{% for sch in sche %}
+<option value = "{{sch.id}}">{{sch.Available_from}} till {{sch.Available_till}}</option>
+{% endfor %}
+
+
+{%endblock%}

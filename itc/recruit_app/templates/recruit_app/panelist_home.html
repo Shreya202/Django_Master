@@ -1,0 +1,49 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>
+h1 {
+    text-align:center
+}
+
+.clickme {
+    background-color: #EEEEEE;
+    padding: 8px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    color: #10a2ff;
+    text-align:center
+    cursor:pointer;
+}
+
+</style>
+<h1>Welcome To Panelist Home </h1>
+
+
+<div>
+<a href='{% url "panelist" %}' class="clickme danger">Give Availability</a>
+</div>
+<br>
+<div>
+<h3><form action="{% url 'queue' %}" method="post">
+{% csrf_token %}
+
+
+ <button type="submit" name='mybtn2' class="btn btn-primary" value={{request.user}}>Check your queue</button>
+ </form></h3>
+</div>
+<br/>
+{% comment %} <div>
+<a href='{% url "interview" %}' class="clickme warning">Schedule Interview</a>
+</div>
+<br/> {% endcomment %}
+{% comment %} <div>
+<a href="http://www.studytonight.com/library" class="clickme info">Library</a>
+</div>
+<br/>
+<div>
+<a href="http://www.studytonight.com/testimonials" class="clickme default">Testimonials</a>
+</div>
+<br/> {% endcomment %}
+<p>Try clicking on any button </p>
+{% endblock %}

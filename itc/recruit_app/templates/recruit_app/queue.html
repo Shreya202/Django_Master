@@ -1,0 +1,12 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1>Your Interviews </h1>
+
+{% for i in inter %}
+<h3>You have interview at {{i.interview_time}} </h3>
+{% endfor %}
+
+{% endblock %}

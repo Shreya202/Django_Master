@@ -1,0 +1,33 @@
+{% extends 'recruit_app/main.html' %}
+{% block content %}
+<style>h1 {
+    text-align: center;
+    </style>
+<h1>Interview List</h1>
+
+{% if messages %}
+          <ul class="messages" color = "green">
+            {% for message in messages %}
+              <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+<table style = "width:100%">
+    <tr>
+        <th>Panelist </th>
+        <th>Candidate </th>
+        <th>Interview Time</th>
+        
+    </tr>
+    {% for item in obj %}
+    <tr> 
+        <td>{{ item.panelist }}</td>
+        <td>{{ item.candidate }}</td>
+        <td>{{ item.interview_time }}</td>
+        <td><a href = "/recruiter/interview/all/{{item.id}}" >Cancel</a> 
+        </td>
+    </tr> 
+    {% endfor %}
+</table>
+{% endblock %}
